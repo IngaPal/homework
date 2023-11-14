@@ -80,7 +80,7 @@ public class MyArray {
     // добавляет элемент со значением val в конец
     public void add(double val) {
         double[] newArray = new double[array.length + 1];
-        copy(array, newArray);
+        for (int i = 0; i < array.length; i++) newArray[i] = array[i];
         newArray[array.length] = val;
         array = newArray;
     }
@@ -88,23 +88,18 @@ public class MyArray {
     public void removeLast() {
         if (array.length > 0) {
             double[] newArray = new double[array.length - 1];
-            copy(array, newArray);
+            for (int i = 0; i < newArray.length; i++) {
+                newArray[i] = array[i];
+            }
             array = newArray;
         }
     }
     // удаляет первое значение из массива, равное переданному
     public void remove(double val) {
-        int index = indexOf(val);
-        while (index != -1) {
-            remove(index);
-            index = indexOf(val);
-        }
+        while (indexOf(val) != -1) remove(indexOf(val));
     }
     // заменяет значение val в массиве на значение newVal
     public void replace(double val, double newVal) {
-        int index = indexOf(val);
-        if (index != -1) {
-            set(index, newVal);
+        if (indexOf(val) != -1) set(indexOf(val), newVal);
         }
     }
-}
