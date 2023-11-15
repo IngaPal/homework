@@ -1,5 +1,7 @@
 package homework28;
 
+import java.util.Arrays;
+
 public class MyArray {
     private int size;
     private double[] array;
@@ -79,20 +81,12 @@ public class MyArray {
     }
     // добавляет элемент со значением val в конец
     public void add(double val) {
-        double[] newArray = new double[array.length + 1];
-        for (int i = 0; i < array.length; i++) newArray[i] = array[i];
-        newArray[array.length] = val;
-        array = newArray;
+        array = Arrays.copyOf(array, array.length + 1);
+        array[array.length - 1] = val;
     }
     // удаляет последний элемент
     public void removeLast() {
-        if (array.length > 0) {
-            double[] newArray = new double[array.length - 1];
-            for (int i = 0; i < newArray.length; i++) {
-                newArray[i] = array[i];
-            }
-            array = newArray;
-        }
+        if (array.length > 0) array = Arrays.copyOf(array, array.length - 1);
     }
     // удаляет первое значение из массива, равное переданному
     public void remove(double val) {
