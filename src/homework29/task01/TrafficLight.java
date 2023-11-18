@@ -1,25 +1,14 @@
 package homework29.task01;
 
 public class TrafficLight {
-    private TrafficLightColor currentColor;
-
+    private TrafficLightColor currentColor; //  цвет светофора
     public TrafficLight(TrafficLightColor currentColor) {
-        this.currentColor = currentColor;
+        this.currentColor = currentColor; // Светофор
     }
-
     public TrafficLightColor getCurrentColor() {
-        return currentColor;
+        return currentColor; // возвращаем цвет светофора
     }
-
     public void setCurrentColor(TrafficLightColor currentColor) {
-        this.currentColor = currentColor;
-    }
-
-    public boolean canCrossTheRoad() {
-        return currentColor == TrafficLightColor.GREEN;
-    }
-
-    public String getAnswer(boolean canCross) {
-        return canCross ? "да" : "нет";
+        this.currentColor = currentColor; // устанавливаем цвет светофора
     }
 }
