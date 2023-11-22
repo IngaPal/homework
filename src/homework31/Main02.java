@@ -11,9 +11,11 @@ public class Main02 {
         if (nummer == 1 || nummer == 2) {
             Random random = new Random();
             System.out.println("Результат:");
-            for (int i = 0; i < nummer; i++) {
-                int dice = random.nextInt(6) + 1;
-                System.out.println(dice);
+            int dice1 = random.nextInt(6) + 1;
+            System.out.println(dice1);
+            if (nummer == 2) {
+                int dice2 = random.nextInt(6) + 1;
+                System.out.println(dice2);
             }
         } else {
             System.out.println("У меня нет такого количества костей.");
