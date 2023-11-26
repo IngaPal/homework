@@ -17,13 +17,16 @@ import java.util.Scanner;
 public class Main03 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int number ;
-        System.out.println("Введите число от 1 до 10 ");
-        number = scanner.nextInt();
-        if (number < 11) {
-            System.out.println("Вы ввели " + number + "." + " Спасибо!");
-        }else{
-            System.out.println("неподходящее число!");
+        int number;
+        do {
+            System.out.println("Введите число от 1 до 10 ");
+            number = scanner.nextInt();
+            if (number >= 1 && number <= 10) {
+                System.out.println("Вы ввели " + number + "." + " Спасибо!");
+                break;
+            } else {
+                System.out.println("неподходящее число!");
+            }
+        }while (true);
     }
-}
 }
