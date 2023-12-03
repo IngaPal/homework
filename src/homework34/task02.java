@@ -1,6 +1,5 @@
 package homework34;
-import java.util.Scanner;
-public class task02 {
+import java.util.Scanner;public class task02 {
     /*Классификация планет
 
     Создать перечисление "Планеты солнечной системы",
@@ -18,6 +17,33 @@ public class task02 {
     Обратите внимание: плутон не считается планетой,
     так как находится в поясе Кой пера,
     где были найдены планетоиды больших размеров*/
+    public enum Planet {
+        МЕРКУРИЙ("Меркурий", "Безжизненный камень"),
+        ВЕНЕРА("Венера", "Безжизненный камень"),
+        ЗЕМЛЯ("Земля", "Обитаемая планета"),
+        МАРС("Марс", "Безжизненный камень"),
+        ЮПИТЕР("Юпитер", "Газовый гигант"),
+        САТУРН("Сатурн", "Газовый гигант"),
+        УРАН("Уран", "Газовый гигант"),
+        НЕПТУН("Нептун", "Газовый гигант");
+
+        private String planetName;
+        private String planetInfo;
+
+        Planet(String planetName, String planetInfo) {
+            this.planetName = planetName;
+            this.planetInfo = planetInfo;
+        }
+
+        public String getPlanetName() {
+            return planetName;
+        }
+
+        public String getPlanetInfo() {
+            return planetInfo;
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Напишите номер планеты:");
         System.out.println("1. Меркурий");
@@ -30,46 +56,61 @@ public class task02 {
         System.out.println("8. Нептун");
         Scanner scanner = new Scanner(System.in);
         int i = scanner.nextInt();
-        String planetName;
-        String planetInfo;
+        Planet planet;
         switch (i) {
             case 1:
-                planetName = "Меркурий";
-                planetInfo = "Безжизненный камень";
+                planet = Planet.МЕРКУРИЙ;
                 break;
             case 2:
-                planetName = "Венера";
-                planetInfo = "Безжизненный камень";
+                planet = Planet.ВЕНЕРА;
                 break;
             case 3:
-                planetName = "Земля";
-                planetInfo = "Обитаемая планета";
+                planet = Planet.ЗЕМЛЯ;
                 break;
             case 4:
-                planetName = "Марс";
-                planetInfo = "Безжизненный камень";
+                planet = Planet.МАРС;
                 break;
             case 5:
-                planetName = "Юпитер";
-                planetInfo = "Газовый гигант";
+                planet = Planet.ЮПИТЕР;
                 break;
             case 6:
-                planetName = "Сатурн";
-                planetInfo = "Газовый гигант";
+                planet = Planet.САТУРН;
                 break;
             case 7:
-                planetName = "Уран";
-                planetInfo = "Газовый гигант";
+                planet = Planet.УРАН;
                 break;
             case 8:
-                planetName = "Нептун";
-                planetInfo = "Газовый гигант";
+                planet = Planet.НЕПТУН;
                 break;
             default:
                 System.out.println("Некорректный выбор");
                 return;
         }
-        System.out.println("Вы выбрали планету " + planetName);
-        System.out.println("Класс: " + planetInfo);
+        System.out.println("Вы выбрали планету " + planet.getPlanetName());
+        System.out.println("Класс: " + getPlanetType(planet));
+    }
+
+    public static String getPlanetType(Planet planet) {
+        String planetType;
+        switch (planet) {
+            case МЕРКУРИЙ:
+            case ВЕНЕРА:
+            case МАРС:
+                planetType = "Безжизненный камень";
+                break;
+            case ЗЕМЛЯ:
+                planetType = "Обитаемая планета";
+                break;
+            case ЮПИТЕР:
+            case САТУРН:
+            case УРАН:
+            case НЕПТУН:
+                planetType = "Газовый гигант";
+                break;
+            default:
+                planetType = "Неизвестный тип";
+                break;
+        }
+        return planetType;
     }
 }

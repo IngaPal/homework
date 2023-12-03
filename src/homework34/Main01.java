@@ -1,6 +1,8 @@
 package homework34;
 
 import java.util.Scanner;
+import java.util.Map;
+import java.util.HashMap;
 public class Main01 {
     /*Пользователь вводит название месяца маленькими буквами.
     Вывести сезон, в котором будет этот месяц.
@@ -13,38 +15,39 @@ public class Main01 {
     зима*/
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Напишите название месяца:");
+        System.out.println("Enter the name of the month:");
         String monat = scanner.nextLine();
-        String jahreszeit = jarSezon(monat);
-        System.out.println("Это: " + jahreszeit);
+        String season = getSeason(monat);
+        System.out.println("It is: " + season);
     }
-    public static String jarSezon(String monat) {
-        String jahreszeit;
+
+    public static String getSeason(String monat) {
+        String season;
         switch (monat) {
-            case "декабрь":
-            case "январь":
-            case "февраль":
-                jahreszeit = "зима";
+            case "december":
+            case "january":
+            case "february":
+                season = "winter";
                 break;
-            case "март":
-            case "апрель":
-            case "май":
-                jahreszeit = "весна";
+            case "march":
+            case "april":
+            case "may":
+                season = "spring";
                 break;
-            case "июнь":
-            case "июль":
-            case "август":
-                jahreszeit = "лето";
+            case "june":
+            case "july":
+            case "august":
+                season = "summer";
                 break;
-            case "сентябрь":
-            case "октябрь":
-            case "ноябрь":
-                jahreszeit = "осень";
+            case "september":
+            case "october":
+            case "november":
+                season = "autumn";
                 break;
             default:
-                jahreszeit = "неизвестный месяц";
+                season = "unknown month";
                 break;
         }
-        return jahreszeit;
+        return season;
     }
 }
